@@ -75,7 +75,9 @@ function App() {
   );
 
   useEffect(function () {
-    fetch(`http://localhost:5050/pitanja`).then((res) =>
+    fetch(
+      `https://raw.githubusercontent.com/kablo1412/json-s-pitanjima-za-fpl-quiz/main/pitanja.json`
+    ).then((res) =>
       res
         .json()
         .then((data) => dispatch({ type: "dataReceived", payload: data }))
