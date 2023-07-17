@@ -73,16 +73,11 @@ function App() {
     (prev, cur) => prev + cur.bodovi,
     0
   );
-
   useEffect(function () {
-    fetch(
-      `https://raw.githubusercontent.com/kablo1412/json-s-pitanjima-za-fpl-quiz/main/pitanja.json`
-    ).then((res) =>
-      res
-        .json()
-        .then((data) => dispatch({ type: "dataReceived", payload: data }))
-        .catch((err) => dispatch({ type: "dataFailed" }))
-    );
+    fetch(`questions.json`, {})
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: "dataReceived", payload: data }))
+      .catch((err) => dispatch({ type: "dataFailed" }));
   }, []);
 
   return (
